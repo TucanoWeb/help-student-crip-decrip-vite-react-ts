@@ -5,13 +5,15 @@ import { IText } from "../types/text";
 
 interface IProps {
     setText: Dispatch<SetStateAction<IText>>;
+    textInitial: string;
 }
 
-const Input = ({ setText }: IProps) => {
+const Input = ({ setText, textInitial }: IProps) => {
     return (
         <>
             <SimpleMdeReact
                 className="dark:text-white"
+                value={textInitial}
                 onChange={(value) => setText((prev) => ({ ...prev, textInitial: value }))}
             />
         </>

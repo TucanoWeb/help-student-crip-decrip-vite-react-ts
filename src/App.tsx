@@ -20,14 +20,16 @@ function App() {
             const convertText = CryptoJS.AES.encrypt(text.textInitial, text.key);
             setText((prev) => ({
                 ...prev,
-                textFinal: convertText.toString()
+                textFinal: convertText.toString(),
+                textInitial: ""
             }));
         } else {
             try {
                 // reset
                 setText((prev) => ({
                     ...prev,
-                    textFinal: ""
+                    textFinal: "",
+                    textInitial: ""
                 }));
 
                 const bytes = CryptoJS.AES.decrypt(text.textInitial, text.key);
@@ -100,7 +102,7 @@ function App() {
                     </div>
                 </div>
 
-                <Input setText={setText} />
+                <Input setText={setText} textInitial={text.textInitial} />
                 <button
                     disabled={text.textInitial === "" || text.key === "" ? true : false}
                     className="btn btn-primary"
