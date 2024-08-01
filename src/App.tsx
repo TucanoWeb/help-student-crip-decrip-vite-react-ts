@@ -25,6 +25,8 @@ function App() {
             }));
         } else {
             try {
+                const bytes = CryptoJS.AES.decrypt(text.textInitial, text.key);
+
                 // reset
                 setText((prev) => ({
                     ...prev,
@@ -32,7 +34,6 @@ function App() {
                     textInitial: ""
                 }));
 
-                const bytes = CryptoJS.AES.decrypt(text.textInitial, text.key);
                 const convertText = bytes.toString(CryptoJS.enc.Utf8);
                 setText((prev) => ({
                     ...prev,

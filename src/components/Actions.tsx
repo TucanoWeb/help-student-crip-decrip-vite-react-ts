@@ -40,11 +40,7 @@ const Actions = ({ textFinal, title }: IProps) => {
             </button>
 
             <div className="ml-2">
-                <button
-                    onClick={handleDownload}
-                    className="btn btn-secondary"
-                    disabled={clicked}
-                >
+                <button onClick={handleDownload} className="btn btn-secondary">
                     <MdOutlineFileDownload className="size-5 mr-1" />
                     Download
                 </button>
